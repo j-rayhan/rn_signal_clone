@@ -12,9 +12,6 @@ const ButtonX = ({ title, onSubmit }) => (
 );
 export default ButtonX;
 const styles = StyleSheet.create({
-  btnContainer: {
-    marginTop: verticalScale(206),
-  },
   btn: {
     alignItems: 'center',
     justifyContent: 'center',
