@@ -4,9 +4,10 @@ import { verticalScale } from '../utils';
 
 const { width } = Dimensions.get('window');
 
-const InputX = ({ placeholder }) => (
+const InputX = ({ placeholder, onChange }) => (
   <TextInput
     style={styles.input}
+    onChangeText={onChange}
     placeholder={placeholder}
     defaultValue={''}
   />

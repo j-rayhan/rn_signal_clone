@@ -4,10 +4,12 @@ import { verticalScale } from '../utils';
 
 const { width} = Dimensions.get('window');
 
-const PasswordX = ({placeholder})=>(
+const PasswordX = ({placeholder,onChange})=>(
 <View style={styles.passwordContainer}>
   <TextInput
     style={styles.input}
+    onChangeText={onChange}
+    secureTextEntry
     placeholder={placeholder}
     defaultValue={''}
   />

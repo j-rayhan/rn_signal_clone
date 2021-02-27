@@ -1,13 +1,14 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Text } from 'react-native-elements';
 import { verticalScale } from '../utils';
 
-
-const FooterX = ({ text1, text2 }) => (
+const FooterX = ({ text1, text2, onPress }) => (
   <View style={styles.footerContainer}>
     <Text style={styles.text1}>{text1}</Text>
-    <Text style={styles.text2}>{text2}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <Text style={styles.text2}>{text2}</Text>
+    </TouchableOpacity>
   </View>)
 export default FooterX;
 

@@ -5,9 +5,9 @@ import { verticalScale } from '../utils';
 
 const { width } = Dimensions.get('window');
 
-const ButtonX = ({ title, onPress }) => (
+const ButtonX = ({ title, onSubmit }) => (
   <View style={styles.btnContainer}>
-    <Button onPress={onPress} buttonStyle={styles.btn} titleStyle={styles.text} title={title} />
+    <Button onPress={onSubmit} buttonStyle={styles.btn} titleStyle={styles.text} title={title} />
   </View>
 );
 export default ButtonX;
