@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Dimensions,Alert, KeyboardAvoidingView } from 'react-native';
 import {LogoX, TitleX, ButtonX, FooterX, InputX, PasswordX} from '../components'
+import { auth } from '../config/Firebase';
 import { verticalScale } from '../utils';
 
 const { height, width } = Dimensions.get('window');
@@ -31,11 +32,21 @@ const styles = StyleSheet.create({
 });
 
 function LoginScreen({ navigation }) {
+  useEffect(()=>{
+    const unSubscribe = auth.onAuthStateChanged(authUser=>{
+    console.log('PRINT IN %s=====>', 'authUser', authUser )
+      if (authUser) {
+        navigation.replace('Home')
+      }
+    });
+    return unSubscribe;
+  },[])
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
   const handleSubmit = () => {
     if(!(email.trim() && password.trim())) Alert.alert('Please input required field')
     console.log('PRINT IN %s=====>', 'submit', email, password )
+    auth.signInWithEmailAndPassword(email, password).catch(e=> console.error('signin error---------->', e))
   }
   return (
     <View style={styles.container}>

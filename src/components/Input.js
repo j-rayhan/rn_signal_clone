@@ -15,7 +15,7 @@ const InputX = ({ placeholder, onChange }) => (
 export default InputX;
 const styles = StyleSheet.create({
   input: {
-    height: verticalScale(60),
+    height: 60,
     width: width - 40,
     maxWidth: 400,
     alignItems: 'center',
